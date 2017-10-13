@@ -32,6 +32,9 @@ if ($_GET['do'] == 'login') {
         $_SESSION[SESSION_PREFIX . 'user__Status'] = $result['result'][0]['user__Status'];
         $_SESSION[SESSION_PREFIX . 'user__Theme'] = $result['result'][0]['user__Theme'];
         $_SESSION[SESSION_PREFIX . 'user__IP'] = $_SERVER['REMOTE_ADDR'];
+        //Set theme in cookie
+        setcookie('ck_theme', $_SESSION[SESSION_PREFIX . 'user__Theme'], time() + (COOKIE_EXPIRY_DAYS * 86400), '/');
+
 //set remember cookie
         if ($_POST['user__Remember'] == 'yes') {
             $cookieExpires = time() + (COOKIE_EXPIRY_DAYS * 86400);
@@ -99,7 +102,7 @@ if ($_GET['do'] == 'retrieve') {
 <html>
     <head>
         <?php include('inc-head.php'); ?>
-         <!-- Get last login theme -->
+        <!-- Get last login theme -->
         <?php if ((isset($_COOKIE['ck_theme'])) && ($_COOKIE['ck_theme'] != '')) { ?>
             <link id="themeCss" href="<?php echo ADMIN_URL; ?>css/themes/<?php echo $_COOKIE['ck_theme']; ?>/style.css" rel="stylesheet">
         <?php } ?>
