@@ -61,3 +61,13 @@ thead tr th{
 .btn.btn-primary:hover {
     background: #59a215;
 }
+/* Login Box */
+.br-lblue{
+    background-color: #1967A7;
+}
+.btn.btn-info{
+    background-color: #1967A7;
+}
+.btn.btn-info:hover{
+    background-color: #333;
+}

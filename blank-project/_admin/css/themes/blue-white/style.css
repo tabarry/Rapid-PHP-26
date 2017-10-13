@@ -71,3 +71,13 @@ thead tr th{
 .sidebar .side-nav ul li a{
     color: #FFF !important;
 }
+/* Login Box */
+.br-lblue{
+    background-color: #436DD6;
+}
+.btn.btn-info{
+    background-color: #436DD6;
+}
+.btn.btn-info:hover{
+    background-color: #333;
+}
