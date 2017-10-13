@@ -8,15 +8,12 @@
 //Error reporting
 error_reporting("E_ALL & ~E_NOTICE & ~E_DEPRECATED");
 //ini_set('display_errors',1);
-//Include the language file
-include('language.php');
+
 //MISC SETTINGS
 define('LOCAL_URL', 'http://localhost/#SITE_FOLDER#/');
 define('WEB_URL', 'http://localhost/#SITE_FOLDER#/');
 define('SESSION_PREFIX', '#SESSION_PREFIX#');
 define('UID_LENGTH', 14);
-define('OPENID_DOMAIN', $_SERVER['HTTP_HOST']);
-define('GOOGLE_LOGOUT_URL', 'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=');
 define('COOKIE_EXPIRY_DAYS', '30');
 define('PHP_EXTENSION', ''); //This will add or remove '.php' in file links
 //URLs and db settings

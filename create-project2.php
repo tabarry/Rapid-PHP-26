@@ -25,7 +25,7 @@ for ($i = 0; $i <= sizeof($sql); $i++) {
 }
 //Drop unwanted tables and files
 if ($_POST['sulata_faqs'] == 'drop') {
-    echo $sql = "DROP TABLE IF EXISTS sulata_faqs";
+    $sql = "DROP TABLE IF EXISTS sulata_faqs";
     mysqli_query($cn,$sql) or die(mysqli_error($cn));
     unlink('../' . $_POST['directory'] . '/_admin/faqs.php');
     unlink('../' . $_POST['directory'] . '/_admin/faqs-add.php');
@@ -62,7 +62,7 @@ if ($_POST['sulata_pages'] == 'drop') {
     unlink('../' . $_POST['directory'] . '/_admin/headers-remote.php');
 }
 if ($_POST['sulata_testimonials'] == 'drop') {
-    echo $sql = "DROP TABLE IF EXISTS sulata_testimonials";
+    $sql = "DROP TABLE IF EXISTS sulata_testimonials";
     mysqli_query($cn,$sql) or die(mysqli_error($cn));
     unlink('../' . $_POST['directory'] . '/_admin/testimonials.php');
     unlink('../' . $_POST['directory'] . '/_admin/testimonials-add.php');

@@ -30,6 +30,8 @@ if (DATE_FORMAT == 'mm-dd-yy') {
 } else {
     $today = date("d-m-Y");
 }
+//Include the language file
+include('language.php');
 //Pagination size
 define('PAGE_SIZE', $getSettings['page_size']);
 //Set time zone

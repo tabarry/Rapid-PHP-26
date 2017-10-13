@@ -10,6 +10,7 @@ $sitePath = '../' . $_POST['folder'] . '/sulata/';
 $appPath = '../' . $_POST['folder'] . '/';
 $backupPath = '../' . $_POST['folder'] . '/backup/';
 /* --COMMON SETTINGS */
+date_default_timezone_set('Asia/Karachi');
 define('SITE_TITLE', $version);
 define('TAG_LINE', 'RAD Tool for PHP Development with Bootstrap Framework');
 define('SITE_FOOTER', 'Rapid PHP is a product of <a href="http://www.sulata.com.pk" target="_blank">Sulata iSoft</a>.');
