@@ -99,6 +99,10 @@ if ($_GET['do'] == 'retrieve') {
 <html>
     <head>
         <?php include('inc-head.php'); ?>
+         <!-- Get last login theme -->
+        <?php if ((isset($_COOKIE['ck_theme'])) && ($_COOKIE['ck_theme'] != '')) { ?>
+            <link id="themeCss" href="<?php echo ADMIN_URL; ?>css/themes/<?php echo $_COOKIE['ck_theme']; ?>/style.css" rel="stylesheet">
+        <?php } ?>
         <script type="text/javascript">
             $(document).ready(function() {
 
