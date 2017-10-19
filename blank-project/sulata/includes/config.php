@@ -8,7 +8,6 @@
 //Error reporting
 error_reporting("E_ALL & ~E_NOTICE & ~E_DEPRECATED");
 //ini_set('display_errors',1);
-
 //MISC SETTINGS
 define('LOCAL_URL', 'http://localhost/#SITE_FOLDER#/');
 define('WEB_URL', 'http://localhost/#SITE_FOLDER#/');
@@ -20,7 +19,11 @@ define('PHP_EXTENSION', ''); //This will add or remove '.php' in file links
 //Other settings are in sulata_settings table
 //If local
 if (!strstr($_SERVER['HTTP_HOST'], ".")) {
-    define('DEBUG', TRUE);
+    if (!isset($_GET['debug'])) { //Debug mode can be toggled from querystring as ?debug=0 or ?debug=1
+        define('DEBUG', TRUE);
+    } else {
+        define('DEBUG', $_GET['debug']);
+    }
     define('BASE_URL', LOCAL_URL);
     define('ADMIN_URL', BASE_URL . '_admin/');
     define('ADMIN_SUBMIT_URL', ADMIN_URL);
@@ -40,7 +43,11 @@ if (!strstr($_SERVER['HTTP_HOST'], ".")) {
     define('DB_USER', '#DB_USER#');
     define('DB_PASSWORD', '#DB_PASSWORD#');
 } else {
-    define('DEBUG', FALSE);
+    if (!isset($_GET['debug'])) { //Debug mode can be toggled from querystring as ?debug=0 or ?debug=1
+        define('DEBUG', TRUE);
+    } else {
+        define('DEBUG', $_GET['debug']);
+    }
     define('BASE_URL', WEB_URL);
     define('ADMIN_URL', BASE_URL . '_admin/');
     define('ADMIN_SUBMIT_URL', ADMIN_URL);
