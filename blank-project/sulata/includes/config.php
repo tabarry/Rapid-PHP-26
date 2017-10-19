@@ -67,6 +67,12 @@ if (!strstr($_SERVER['HTTP_HOST'], ".")) {
     define('DB_USER', '#DB_USER#');
     define('DB_PASSWORD', '#DB_PASSWORD#');
 }
+//Debug
+if (DEBUG == TRUE) {
+    ini_set('display_errors', 1);
+} else {
+    ini_set('display_errors', 0);
+}
 //Edit delete download access
 $editAccess = TRUE;
 $duplicateAccess = TRUE;
