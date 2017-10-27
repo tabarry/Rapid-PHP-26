@@ -3,9 +3,9 @@ body{
     font-family:"Bookman Old Style", "Book Antiqua", Garamond, "Times New Roman";
     font-size:13px;
     margin:0px;
-    background:url(../images/bg.jpg) 0 -400px;
     background-repeat:repeat-x;
     color:#000000;
+    background-color: #EEE;
 
 }
 a{

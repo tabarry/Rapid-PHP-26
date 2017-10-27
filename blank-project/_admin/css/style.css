@@ -2333,7 +2333,9 @@ form label.error {
     height: 200px;
     padding: 5px 12px;
 }
-
+form textarea{
+    height: 150px !important;
+}
 .page-content .page-inbox .mail-read,
 .page-content .page-inbox .mail-write{
     padding: 15px;

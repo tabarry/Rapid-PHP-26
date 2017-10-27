@@ -68,6 +68,9 @@ for ($i = 0; $i <= sizeof($_POST['frmField']) - 1; $i++) {
     if ($_POST['frmType'][$i] == 'Dropdown from DB') {
         include('inc-add-dbdropdownbox.php');
     }
+    if ($_POST['frmType'][$i] == 'Quick Pick') {
+        include('inc-add-quickpick-textarea.php');
+    }
     if ($_POST['frmType'][$i] == 'Autocomplete') {
         include('inc-add-autocompletebox.php');
     }

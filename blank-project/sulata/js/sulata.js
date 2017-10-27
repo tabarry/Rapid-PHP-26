@@ -281,3 +281,17 @@ function sleep(milliseconds) {
         }
     }
 }
+//Quick pick
+function doQuickPick(sourceVal, targetEle, errorMsg) {
+    oldVal = $('#' + targetEle).val();
+    eleType = document.getElementById(targetEle).type;
+    if (eleType == 'textarea') {
+        newVal = oldVal + sourceVal + '\n';
+    } else if (eleType == 'text') {
+        newVal = oldVal + sourceVal + '. ';
+    } else {
+        alert(errorMsg);
+        newVal = '';
+    }
+    $('#' + targetEle).val(newVal);
+}

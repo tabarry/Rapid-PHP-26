@@ -34,6 +34,8 @@ define('OLD_PASSWORD_MESSAGE', 'Old password will not be displayed and the passw
 define('CONFIRM_DELETE', 'Are you sure?');
 define('CONFIRM_DELETE_RESTORE', 'This record will be deleted but can be restored, till this page is reloaded.');
 define('RECORD_RESTORED', 'Record restored successfully.');
+define('QUICK_PICK_ERROR', 'The target element can only be a textbox or textarea.');
+
 define('EDIT_RECORD', 'Edit record.');
 define('DELETE_RECORD', 'Delete record.');
 define('RECORD_NOT_FOUND', 'There are no records available to display.');
@@ -43,11 +45,13 @@ define('NOTES_UDPATE_MESSAGE', 'Notes updated successfully.');
 define('MULTIPLE_LOGIN_ERROR_MESSAGE', 'You have logged in from another IP address, hence this session has been logged out.');
 define('ALLOWED_ATTACHMENTS_MESSAGE', "The following files were not uploaded due to unallowed file formats.\\n\\n %s \\nOnly %s formats are allowed.\\n");
 define('TESTIMONIAL_PLACEHOLDER', 'Name, Company and Designation');
-/** Short Tags **/
+/** Short Tags * */
 define('EDIT', 'Edit');
 define('DUPLICATE', 'Duplicate');
 define('DELETE', 'Delete');
 define('RESTORE', 'Restore');
+define('QUICK_PICKS', 'Quick Picks:');
+
 
 define('SERIAL', 'Sr.');
 define('CONFIRM', 'Confirm');
@@ -56,12 +60,7 @@ define('NOTES_LABEL', 'Write anything here like things to do, things to remember
 define('DOWNLOAD_CSV', 'Download CSV');
 define('DOWNLOAD_PDF', 'Download PDF');
 
-
-/** Google Plus * */
-define('GOOGLE_CANCELLED', 'Authentication cancelled.');
-define('GOOGLE_INVALID_USER', 'The Google user logged in does not have access to this web site. Please log out from Google and log in again.');
-define('GOOGLE_NOT_LOGGED_IN', 'The user have not logged in.');
-//**Site Specific**/
+//** Site Specific **/
 define('THUMBNAIL_WIDTH', 'Thumbnail Width');
 define('THUMBNAIL_HEIGHT', 'Thumbnail Height');
 define('IMAGE_WIDTH', 'Image Width');

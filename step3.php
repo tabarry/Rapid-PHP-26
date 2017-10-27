@@ -142,6 +142,7 @@ set_time_limit(0);
                                                         <option <?php makeFieldType($row[8], $row[0], $row[1], "Dropdown from DB"); ?>>Dropdown from DB</option>
                                                         <option <?php makeFieldType($row[8], $row[0], $row[1], "Autocomplete"); ?>>Autocomplete</option>
                                                         <option <?php makeFieldType($row[8], $row[0], $row[1], "Searchable Dropdown"); ?>>Searchable Dropdown</option>
+                                                        <option <?php makeFieldType($row[8], $row[0], $row[1], "Quick Pick Textarea"); ?>>Quick Pick</option>
                                                         <option <?php makeFieldType($row[8], $row[0], $row[1], "File field"); ?>>File field</option>
                                                         <option <?php makeFieldType($row[8], $row[0], $row[1], "Picture field"); ?>>Picture field</option>
                                                         <option <?php makeFieldType($row[8], $row[0], $row[1], "Attachment field"); ?>>Attachment field</option>
