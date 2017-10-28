@@ -5,7 +5,8 @@ include('../sulata/includes/functions.php');
 include('../sulata/includes/get-settings.php');
 include('../sulata/includes/db-structure.php');
 checkLogin();
-
+//print_array($_POST);
+//exit;
 //Validation array
 $validateAsArray = array('user__Name_validateas' => 'required', 'user__Phone_validateas' => '', 'user__Email_validateas' => 'email', 'user__Password_validateas' => 'password', 'user__Status_validateas' => 'enum', 'user__Picture_validateas' => 'image',);
 //---------
@@ -45,7 +46,7 @@ if ($do == "add") {
     }
 
     //build query for file  uploads
-    $sql = "INSERT INTO sulata_users SET user__Name='" . suStrip($_POST['user__Name']) . "',user__Phone='" . suStrip($_POST['user__Phone']) . "',user__Email='" . suStrip($_POST['user__Email']) . "',user__Password='" . suCrypt(suStrip($_POST['user__Password'])) . "',user__Status='" . suStrip($_POST['user__Status']) . "'
+    echo $sql = "INSERT INTO sulata_users SET user__Name='" . suStrip($_POST['user__Name']) . "',user__Phone='" . suStrip($_POST['user__Phone']) . "',user__Email='" . suStrip($_POST['user__Email']) . "',user__Password='" . suCrypt(suStrip($_POST['user__Password'])) . "',user__Status='" . suStrip($_POST['user__Status']) . "'
 ,user__Last_Action_On ='" . date('Y-m-d H:i:s') . "',user__Last_Action_By='" . $_SESSION[SESSION_PREFIX . 'user__Name'] . "'        
 " . $extraSql;
     $result = suQuery($sql);
@@ -91,6 +92,8 @@ if ($do == "add") {
             suMail($_POST['user__Email'], $subject, $email, $getSettings['site_name'], $getSettings['site_email'], TRUE);
         }
         /* POST INSERT PLACE */
+
+
         if ($_POST['referrer'] == '') {
             $_POST['referrer'] = ADMIN_URL . 'users' . PHP_EXTENSION . '/';
         }
@@ -182,9 +185,11 @@ if ($do == "update") {
         /* POST UPDATE PLACE */
 
         //Set sessions
-        if ($_SESSION[SESSION_PREFIX . 'user_id'] == $_POST['user_id']) {
-            $_SESSION[SESSION_PREFIX . 'user__Name'] = $_POST['user__Name'];
-            $_SESSION[SESSION_PREFIX . 'user__Email'] = $_POST['user__Email'];
+        if ($_POST['self'] == 1) {
+            //if ($_SESSION[SESSION_PREFIX . 'user_id'] == $_POST['user_id']) {
+                $_SESSION[SESSION_PREFIX . 'user__Name'] = $_POST['user__Name'];
+                $_SESSION[SESSION_PREFIX . 'user__Email'] = $_POST['user__Email'];
+            //}
         }
 
         if ($_POST['referrer'] == '') {

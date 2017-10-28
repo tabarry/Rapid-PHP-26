@@ -83,7 +83,7 @@ checkLogin();
                                 <!-- Heading -->
                                 <h3 class="pull-left"><i class="fa fa-desktop purple"></i> <?php echo $pageTitle; ?></h3>
                                 <div class="pull-right">
-                                    
+
                                     <a href="<?php echo ADMIN_URL; ?>users<?php echo PHP_EXTENSION; ?>/"><i class="fa fa-table"></i></a>
                                 </div>
 
@@ -132,7 +132,24 @@ checkLogin();
                                                 ?>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                <label><?php echo $dbs_sulata_users['user__Password_req']; ?>Password:</label>
+                                                <?php
+                                                $arg = array('type' => $dbs_sulata_users['user__Password_html5_type'], 'name' => 'user__Password', 'id' => 'user__Password', 'maxlength' => $dbs_sulata_users['user__Password_max'], $dbs_sulata_users['user__Password_html5_req'] => $dbs_sulata_users['user__Password_html5_req'], 'class' => 'form-control');
+                                                echo suInput('input', $arg);
+                                                ?>
+                                            </div>
 
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                <label><?php echo $dbs_sulata_users['user__Password_req']; ?> Confirm Password:</label>
+                                                <?php
+                                                $arg = array('type' => $dbs_sulata_users['user__Password_html5_type'], 'name' => 'user__Password2', 'id' => 'user__Password2', 'maxlength' => $dbs_sulata_users['user__Password_max'], $dbs_sulata_users['user__Password_html5_req'] => $dbs_sulata_users['user__Password_html5_req'], 'class' => 'form-control');
+                                                echo suInput('input', $arg);
+                                                ?>
+
+                                            </div>
+                                        </div>
 
                                         <div class="form-group">
                                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">

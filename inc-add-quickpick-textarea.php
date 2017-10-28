@@ -34,7 +34,7 @@ $addCode .="
                                 echo \"<p>\".QUICK_PICKS.\" \";
                                                 foreach (\$options as \$key => \$value) {
                                                     if (\$key != '^') {
-                                                        echo \"<a class='underline' href='javascript:;' onclick=\\\"doQuickPick('\$key','" . $_POST['frmField'][$i] . "','\" . QUICK_PICK_ERROR . \"');\\\">\$value</a>. \";
+                                                        echo \"<a class='underline' href='javascript:;' onclick=\\\"doQuickPick('\".\suStrip($key).\"','" . $_POST['frmField'][$i] . "','\" . QUICK_PICK_ERROR . \"');\\\">\$value</a>. \";
                                                     }
                                                 }
                                                 echo \"</p>\";
