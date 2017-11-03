@@ -1,0 +1,11 @@
+FRAMEWORK 26 - CHANGELOG
+=========================
+1. Google integration removed
+2. Added a datatype - Quick Picks
+3. Language file moved to get-settings.php
+4. New default theme added
+5. Theme applied to login
+6. Debug enabled from querystring
+7. Labels come from db-structure.php
+8. Removed hard coded English from several points, now coming from language.php
+9. Removed card view from entire application
