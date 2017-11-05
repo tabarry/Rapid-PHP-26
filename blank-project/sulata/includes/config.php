@@ -11,6 +11,7 @@ error_reporting("E_ALL & ~E_NOTICE & ~E_DEPRECATED");
 //MISC SETTINGS
 define('LOCAL_URL', 'http://localhost/#SITE_FOLDER#/');
 define('WEB_URL', 'http://localhost/#SITE_FOLDER#/');
+define('ADMIN_FOLDER', '_admin'); //This is the name of admin folder
 define('SESSION_PREFIX', '#SESSION_PREFIX#');
 define('UID_LENGTH', 14);
 define('COOKIE_EXPIRY_DAYS', '30');
@@ -25,7 +26,7 @@ if (!strstr($_SERVER['HTTP_HOST'], ".")) {
         define('DEBUG', $_GET['debug']);
     }
     define('BASE_URL', LOCAL_URL);
-    define('ADMIN_URL', BASE_URL . '_admin/');
+    define('ADMIN_URL', BASE_URL . ADMIN_FOLDER . '/');
     define('ADMIN_SUBMIT_URL', ADMIN_URL);
     define('PING_URL', BASE_URL . 'static/ping.html');
     define('NOSCRIPT_URL', BASE_URL . 'sulata/static/no-script.html');
@@ -49,7 +50,7 @@ if (!strstr($_SERVER['HTTP_HOST'], ".")) {
         define('DEBUG', $_GET['debug']);
     }
     define('BASE_URL', WEB_URL);
-    define('ADMIN_URL', BASE_URL . '_admin/');
+    define('ADMIN_URL', BASE_URL . ADMIN_FOLDER . '/');
     define('ADMIN_SUBMIT_URL', ADMIN_URL);
     define('PING_URL', BASE_URL . 'sulata/ping.html');
     define('NOSCRIPT_URL', BASE_URL . 'sulata/static/no-script.html');

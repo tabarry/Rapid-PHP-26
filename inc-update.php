@@ -144,6 +144,7 @@ $updateCodeEnd = "
         echo suInput('input', \$arg);
         ?>
         <p>&nbsp;</p>
+        </div>
         </form>
 ";
 $updateCode = $updateCodeStart . $addCode . $updateCodeEnd;

@@ -4,10 +4,28 @@ if ($doUpdate == TRUE) {
     $updateValue = " , 'value'=>suUnstrip(\$row['" . $_POST['frmField'][$i] . "'])";
 }
 $multipart = TRUE;
+$filePlaceHolder="<?php
+if (suIsImage(\$row['" . $_POST['frmField'][$i] . "']) && suSegment(2) != 'duplicate') {
+                                if ((isset(\$row['" . $_POST['frmField'][$i] . "']) && \$row['" . $_POST['frmField'][$i] . "'] != '') && (file_exists(ADMIN_UPLOAD_PATH . \$row['" . $_POST['frmField'][$i] . "']))) {
+                                    \$defaultImage = BASE_URL . 'files/' . \$row['" . $_POST['frmField'][$i] . "'];
+                                } else {
+                                    \$defaultImage = BASE_URL . 'files/default-image.png';
+                                }
+                                }
+                                ?>
+                                <?php if (suIsImage(\$row['" . $_POST['frmField'][$i] . "']) && suSegment(2) != 'duplicate') { ?>
+                                <div class=\"imgThumb\" style=\"background-image:url(<?php echo \$defaultImage; ?>);\"></div>
+                                <?php } ?>";
+
 $addCode .="
 <div class=\"form-group\">
 <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\">
 <label><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_req']; ?><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_title']; ?>:</label>
+";
+if ($doUpdate == TRUE) {
+    $addCode.=$filePlaceHolder;
+}
+$addCode.="
                                 <?php
                                 \$arg = array('type' => \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_html5_type'] , 'name' => '" . $_POST['frmField'][$i] . "', 'id' => '" . $_POST['frmField'][$i] . "');
                                 echo suInput('input', \$arg);
@@ -15,8 +33,10 @@ $addCode .="
 </div>
 </div>
                                ";
+
 if ($doUpdate == TRUE) {
     $addCode .="
+        
     <?php if(file_exists(ADMIN_UPLOAD_PATH . \$row['" . $_POST['frmField'][$i] . "'])){?>
     <a class=\"underline\" href=\"<?php echo BASE_URL.'files/'.\$row['" . $_POST['frmField'][$i] . "'] ;?>\" target=\"_blank\"><?php echo VIEW_FILE;?></a>
     <?php } ?>    
@@ -34,6 +54,7 @@ if ($doUpdate == TRUE) {
     ?>  
 ";
 }
+
 $extraSqlx3 = "
     //for attachment
     if (\$_FILES['" . $_POST['frmField'][$i] . "']['name'] != '') {

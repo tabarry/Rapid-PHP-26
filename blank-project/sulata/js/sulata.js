@@ -295,3 +295,25 @@ function doQuickPick(sourceVal, targetEle, errorMsg) {
     }
     $('#' + targetEle).val(newVal);
 }
+//Quick pick
+function doQuickPick(sourceVal, targetEle, errorMsg) {
+    eleType = document.getElementById(targetEle).type;
+    if (eleType == 'textarea' || eleType == 'text') {
+        doPlaceAtCursor(targetEle, sourceVal);
+    } else {
+        alert(errorMsg);
+    }
+}
+//Place text at cursor point
+function doPlaceAtCursor(targetEle, newText) {
+    var targetEle = $('#' + targetEle);
+    var start = targetEle.prop("selectionStart")
+    var end = targetEle.prop("selectionEnd")
+    var text = targetEle.val()
+    var before = text.substring(0, start)
+    var after = text.substring(end, text.length)
+    targetEle.val(before + newText + after)
+    targetEle[0].selectionStart = targetEle[0].selectionEnd = start + newText.length
+    targetEle.focus()
+    return false
+}

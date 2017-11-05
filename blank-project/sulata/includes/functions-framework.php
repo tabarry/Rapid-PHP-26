@@ -797,6 +797,15 @@ if (!function_exists('suMail')) {
             $headers = 'MIME-Version: 1.0' . "\r\n";
             $headers .= "Content-Type:text/plain;charset=utf-8\r\n";
             $headers .= "From: $fromName <$fromEmail>" . "\r\n";
+            if (is_array($to)) {
+                $sendTo = '';
+                for ($i = 0; $i <= sizeof($to); $i++) {
+                    if ($to[$i] != '') {
+                        $sendTo.=$to[$i] . ',';
+                    }
+                }
+                $to = substr($sendTo, -1);
+            }
             mail($to, $subject, $message, $headers);
         } else {
             $mail = new PHPMailer(); // defaults to using php "mail()"
@@ -807,7 +816,18 @@ if (!function_exists('suMail')) {
             $mail->AddReplyTo($fromEmail, $fromName);
             $mail->SetFrom($fromEmail, $fromName);
             $mail->CharSet = 'UTF-8';
-            $mail->AddAddress($to, $to);
+            if (is_array($to)) {
+                for ($i = 0; $i <= sizeof($to); $i++) {
+                    if ($to[$i] != '') {
+                        $mail->AddAttachment($attachment[$i]);
+                        $mail->AddAddress($to[$i], $to[$i]);
+                    }
+                }
+            } else {
+                $mail->AddAddress($to, $to);
+            }
+
+
             $mail->Subject = $subject;
             $mail->AltBody = "To view the message, please use an HTML compatible email viewer!";
             $mail->MsgHTML($body);
@@ -1140,6 +1160,24 @@ if (!function_exists('suFtpUpload')) {
 
 // close connection
         ftp_close($ftp_conn);
+    }
+
+}
+//Function to check if $src string has an image extension
+if (!function_exists('suIsImage')) {
+
+    function suIsImage($src) {
+        global $getSettings;
+        $allowed_image_formats = $getSettings['allowed_image_formats'];
+        $allowed_image_formats = explode(',', $allowed_image_formats);
+        $ext = suGetExtension($src);
+        for ($i = 0; $i <= sizeof($allowed_image_formats) - 1; $i++) {
+            if (!in_array($ext, $allowed_image_formats)) {
+                return FALSE;
+            } else {
+                return TRUE;
+            }
+        }
     }
 
 }

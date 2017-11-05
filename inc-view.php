@@ -29,13 +29,18 @@ for ($i = 0; $i <= sizeof($_POST['frmShow']) - 1; $i++) {
         } elseif (strstr($_POST['frmShow'][$i], '_Picture')) {
             $fieldsToShow .= "<th style=\"width:" . $colSize . "%\">" . makeFieldLabel($_POST['frmShow'][$i]) . "</th>\n";
             $colData .= "<td><?php
+                if(suIsImage(\$row['" . $_POST['frmShow'][$i] . "'])){
                                                 if ((isset(\$row['" . $_POST['frmShow'][$i] . "']) && \$row['" . $_POST['frmShow'][$i] . "'] != '') && (file_exists(ADMIN_UPLOAD_PATH . \$row['" . $_POST['frmShow'][$i] . "']))) {
                                                     \$defaultImage = BASE_URL . 'files/' . \$row['" . $_POST['frmShow'][$i] . "'];
                                                 } else {
                                                     \$defaultImage = BASE_URL . 'files/default-image.png';
                                                 }
+                                                }
                                                 ?>
-                                            <div class=\"imgThumb\" style=\"background-image:url(<?php echo \$defaultImage; ?>);\"></div></td>\n";
+                                                <?php if(suIsImage(\$row['" . $_POST['frmShow'][$i] . "'])){ ?>
+                                            <div class=\"imgThumb\" style=\"background-image:url(<?php echo \$defaultImage; ?>);\"></div>
+                                            <?php } ?>
+                                            </td>\n";
         } else {
             if ($_POST['frmType'][$i] == 'Currency') {
                 $fieldsToShow .= "<th class=\"right\" style=\"width:" . $colSize . "%\">" . makeFieldLabel($_POST['frmShow'][$i]) . " <sup><?php echo \$getSettings['site_currency'];?></sup></th>\n";

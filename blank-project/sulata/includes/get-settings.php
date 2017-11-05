@@ -23,6 +23,10 @@ if ($_SESSION[SESSION_PREFIX . 'getSettings'] == '') {
 $getSettings = array();
 $getSettings = $_SESSION[SESSION_PREFIX . 'getSettings'];
 
+//Set time zone
+if (function_exists('date_default_timezone_set')) {
+    date_default_timezone_set($getSettings['timezone']);
+}
 //Site settings
 define('DATE_FORMAT', $getSettings['date_format']); //mm-dd-yy or dd-mm-yy
 if (DATE_FORMAT == 'mm-dd-yy') {
@@ -34,10 +38,7 @@ if (DATE_FORMAT == 'mm-dd-yy') {
 include('language.php');
 //Pagination size
 define('PAGE_SIZE', $getSettings['page_size']);
-//Set time zone
-if (function_exists('date_default_timezone_set')) {
-    date_default_timezone_set($getSettings['timezone']);
-}
+
 //Default image resize dimension
 $defaultWidth = '640';
 $defaultHeight = '480';
