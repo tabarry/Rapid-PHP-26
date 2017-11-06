@@ -1,7 +1,7 @@
 <?php
 
 if ($doUpdate == TRUE) {
-    $updateValue = " , 'value'=>suUnstrip(\$row['" . $_POST['frmField'][$i] . "'])";
+    $updateValue = " ,'onchange'=>\"readURL(this,'imgThumb_" . $_POST['frmField'][$i] . "');\" ";
 }
 $multipart = TRUE;
 if ($doUpdate == TRUE) {
@@ -19,9 +19,9 @@ if ($doUpdate == TRUE) {
                                 }
                                 ?>
 
-                                <div class=\"imgThumb\" style=\"background-image:url(<?php echo \$defaultImage; ?>);\"></div>    
+                                <div id=\"imgThumb_" . $_POST['frmField'][$i] . "\" class=\"imgThumb hand\" style=\"background-image:url(<?php echo \$defaultImage; ?>);\" onclick=\"$('#" . $_POST['frmField'][$i] . "').trigger('click')\"></div>    
                                 <?php
-                                \$arg = array('type' => \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_html5_type'], 'name' => '" . $_POST['frmField'][$i] . "', 'id' => '" . $_POST['frmField'][$i] . "');
+                                \$arg = array('type' => \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_html5_type'], 'name' => '" . $_POST['frmField'][$i] . "', 'id' => '" . $_POST['frmField'][$i] . "'" . $updateValue . ");
                                 echo suInput('input', \$arg);
                                 ?>
 </div>

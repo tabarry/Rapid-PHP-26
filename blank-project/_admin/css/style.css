@@ -76,6 +76,9 @@ hr{
     background-repeat:no-repeat;
     background-position:center;
 }
+.hand{
+    cursor: pointer;
+}
 /* Form */
 
 form{

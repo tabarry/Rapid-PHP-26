@@ -317,3 +317,14 @@ function doPlaceAtCursor(targetEle, newText) {
     targetEle.focus()
     return false
 }
+//Change image source of image placeholder
+function readURL(input, targetEle) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        var imgSrc = e.target.result;
+        if ($('#' + targetEle)) {
+            $('#' + targetEle).css('background-image', 'url(' + imgSrc + ')');
+        }
+    }
+    reader.readAsDataURL(input.files[0]);
+}

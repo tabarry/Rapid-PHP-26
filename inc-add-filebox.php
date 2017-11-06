@@ -1,10 +1,10 @@
 <?php
 
 if ($doUpdate == TRUE) {
-    $updateValue = " , 'value'=>suUnstrip(\$row['" . $_POST['frmField'][$i] . "'])";
+    $updateValue = " ,'onchange'=>\"readURL(this,'imgThumb_" . $_POST['frmField'][$i] . "');\" ";
 }
 $multipart = TRUE;
-$filePlaceHolder="<?php
+$filePlaceHolder = "<?php
 if (suIsImage(\$row['" . $_POST['frmField'][$i] . "']) && suSegment(2) != 'duplicate') {
                                 if ((isset(\$row['" . $_POST['frmField'][$i] . "']) && \$row['" . $_POST['frmField'][$i] . "'] != '') && (file_exists(ADMIN_UPLOAD_PATH . \$row['" . $_POST['frmField'][$i] . "']))) {
                                     \$defaultImage = BASE_URL . 'files/' . \$row['" . $_POST['frmField'][$i] . "'];
@@ -14,28 +14,28 @@ if (suIsImage(\$row['" . $_POST['frmField'][$i] . "']) && suSegment(2) != 'dupli
                                 }
                                 ?>
                                 <?php if (suIsImage(\$row['" . $_POST['frmField'][$i] . "']) && suSegment(2) != 'duplicate') { ?>
-                                <div class=\"imgThumb\" style=\"background-image:url(<?php echo \$defaultImage; ?>);\"></div>
+                                <div id=\"imgThumb_" . $_POST['frmField'][$i] . "\" class=\"imgThumb hand\" style=\"background-image:url(<?php echo \$defaultImage; ?>);\" onclick=\"$('#" . $_POST['frmField'][$i] . "').trigger('click')\"></div>
                                 <?php } ?>";
 if ($doUpdate == TRUE) {
-$addCode .="
+    $addCode .="
 <div class=\"form-group\">
 <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\">            
 <label><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_req']; ?><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_title']; ?>:</label>
     
 ";
-if ($doUpdate == TRUE) {
-    $addCode.=$filePlaceHolder;
-}
-$addCode.="
+    if ($doUpdate == TRUE) {
+        $addCode.=$filePlaceHolder;
+    }
+    $addCode.="
                                 <?php
-                                \$arg = array('type' => \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_html5_type'], 'name' => '" . $_POST['frmField'][$i] . "', 'id' => '" . $_POST['frmField'][$i] . "');
+                                \$arg = array('type' => \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_html5_type'], 'name' => '" . $_POST['frmField'][$i] . "', 'id' => '" . $_POST['frmField'][$i] . "' " . $updateValue . ");
                                 echo suInput('input', \$arg);
                                 ?>
 </div> 
 </div> 
                                 ";
-}else{
-$addCode .="
+} else {
+    $addCode .="
 <div class=\"form-group\">
 <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\">    
 <label><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_req']; ?><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_title']; ?>:</label>
@@ -46,7 +46,7 @@ $addCode .="
                                 ?>
 </div>
 </div>
-                                ";    
+                                ";
 }
 if ($doUpdate == TRUE) {
     $addCode .="
