@@ -21,6 +21,9 @@ include('sulata/includes/db-structure.php');
         <link href="<?php echo BASE_URL; ?>sulata/css/font-awesome.min.css" rel="stylesheet">		
         <!-- Chosen CSS -->
         <link href="<?php echo BASE_URL; ?>sulata/chosen/bootstrap-chosen.css" rel="stylesheet" type="text/css"/>
+        <!-- Custom CSS -->
+        <link href="<?php echo BASE_URL; ?>sulata/css/style.css" rel="stylesheet">
+
         <!-- JQUI -->
         <link href="<?php echo BASE_URL; ?>sulata/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" type="text/css" />
         <!-- Font Awesome -->
