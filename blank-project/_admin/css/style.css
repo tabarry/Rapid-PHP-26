@@ -2554,3 +2554,31 @@ form textarea{
     color:#111;
     text-decoration: none !important;
 }
+/*ERROR AREA*/
+#error-area{
+    display: none;
+    margin-bottom:1em;
+    background-color: #F2DEDE;
+    border:1px solid #EFD6D8;;
+    width:100%;
+}
+
+#error-area ul{
+    padding:1em;
+
+
+
+}
+#error-area ul li{
+    margin-left:1em;
+}
+
+/*MESSAGE AREA*/
+#message-area{
+    padding:1em;
+    width:100%;
+    background-color: #ECFBE6;
+    border:1px solid #93D89A;
+    display: none;
+    margin-bottom:1em;
+}
