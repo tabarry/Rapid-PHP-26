@@ -52,13 +52,17 @@ if (!function_exists('suFrameBuster')) {
 /* Function to get url segment */
 if (!function_exists('suSegment')) {
 
-    function suSegment($segment) {
+    function suSegment($segment = '') {
         $path = $_SERVER['PATH_INFO'];
         if (!strstr($path, '/')) {
             $path = $_SERVER['ORIG_PATH_INFO'];
         }
-        $path = explode('/', $path);
-        return $path[$segment];
+        if ($segment == '') {
+            return $path;
+        } else {
+            $path = explode('/', $path);
+            return $path[$segment];
+        }
     }
 
 }
