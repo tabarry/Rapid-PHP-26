@@ -110,7 +110,7 @@ $updateSql = "
 if(!is_numeric(\$id)){
 	suExit(INVALID_RECORD);
 }
-\$sql = \"SELECT " . $fieldsToUpdate . " FROM " . $_POST['table'] . " WHERE " . $fieldPrefix . "__dbState='Live' AND " . $_POST['primary'] . "='\" . \$id . \"'\";
+\$sql = \"SELECT " . $fieldsToUpdate . " FROM " . $_POST['table'] . " WHERE " . $fieldPrefix . "__dbState='Live' AND " . $_POST['primary'] . "='\" . \$id . \"' LIMIT 0,1 \";
 \$result = suQuery(\$sql);
 \$row = \$result['result'][0];
 if (\$result['num_rows'] == 0) {

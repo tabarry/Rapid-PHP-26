@@ -20,7 +20,7 @@ if (suSegment(2) == 'duplicate') {
 $id = suSegment(1);
 
 
-$sql = "SELECT mediafile__ID,mediafile__Category,mediafile__Title,mediafile__File,mediafile__Short_Description,mediafile__Long_Description,mediafile__Sequence,mediafile__Date FROM sulata_media_files WHERE mediafile__ID='" . $id . "' AND mediafile__dbState='Live'";
+$sql = "SELECT mediafile__ID,mediafile__Category,mediafile__Title,mediafile__File,mediafile__Short_Description,mediafile__Long_Description,mediafile__Sequence,mediafile__Date FROM sulata_media_files WHERE mediafile__ID='" . $id . "' AND mediafile__dbState='Live' LIMIT 0,1";
 $result = suQuery($sql);
 $row = $result['result'][0];
 if ($result['num_rows'] == 0) {

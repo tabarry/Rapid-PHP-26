@@ -18,7 +18,7 @@ if (suSegment(2) == 'duplicate') {
 
 $id = suSegment(1);
 
-$sql = "SELECT page__ID,page__Name,page__Heading,page__Permalink,page__Title,page__Keyword,page__Description,page__Header,page__Short_Text,page__Long_Text,page__Link_Position,page__Parent,page__Sequence FROM sulata_pages WHERE page__ID='" . $id . "' AND page__dbState='Live'";
+$sql = "SELECT page__ID,page__Name,page__Heading,page__Permalink,page__Title,page__Keyword,page__Description,page__Header,page__Short_Text,page__Long_Text,page__Link_Position,page__Parent,page__Sequence FROM sulata_pages WHERE page__ID='" . $id . "' AND page__dbState='Live' LIMIT 0,1";
 $result = suQuery($sql);
 $row = $result['result'][0];
 if ($result['num_rows'] == 0) {

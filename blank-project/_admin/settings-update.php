@@ -16,7 +16,7 @@ if (suSegment(2) == 'duplicate') {
     $pageTitle = 'Update Setting';
 }
 $id = suSegment(1);
-$sql = "SELECT setting__ID,setting__Setting,setting__Key,setting__Value,setting__Type FROM sulata_settings WHERE setting__ID='" . $id . "' AND setting__dbState='Live'";
+$sql = "SELECT setting__ID,setting__Setting,setting__Key,setting__Value,setting__Type FROM sulata_settings WHERE setting__ID='" . $id . "' AND setting__dbState='Live' LIMIT 0,1";
 $result = suQuery($sql);
 $row = $result['result'][0];
 if ($result['num_rows'] == 0) {

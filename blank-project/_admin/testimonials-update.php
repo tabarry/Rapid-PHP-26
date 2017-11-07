@@ -20,7 +20,7 @@ $id = suSegment(1);
 if (!is_numeric($id)) {
     suExit(INVALID_RECORD);
 }
-$sql = "SELECT testimonial__ID,testimonial__Name,testimonial__Location,testimonial__Testimonial,testimonial__Date,testimonial__Status FROM sulata_testimonials WHERE testimonial__dbState='Live' AND testimonial__ID='" . $id . "'";
+$sql = "SELECT testimonial__ID,testimonial__Name,testimonial__Location,testimonial__Testimonial,testimonial__Date,testimonial__Status FROM sulata_testimonials WHERE testimonial__dbState='Live' AND testimonial__ID='" . $id . "' LIMIT 0,1";
 $result = suQuery($sql);
 $row = $result['result'][0];
 if ($result['num_rows'] == 0) {

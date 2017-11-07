@@ -32,7 +32,7 @@ if ($id == '') {
 
 
 
-$sql = "SELECT user__ID,user__Name,user__Phone,user__Email,user__Password,user__Status,user__Picture FROM sulata_users WHERE user__ID='" . $id . "' AND user__dbState='Live'";
+$sql = "SELECT user__ID,user__Name,user__Phone,user__Email,user__Password,user__Status,user__Picture FROM sulata_users WHERE user__ID='" . $id . "' AND user__dbState='Live' LIMIT 0,1";
 $result = suQuery($sql);
 $row = $result['result'][0];
 if ($result['num_rows'] == 0) {

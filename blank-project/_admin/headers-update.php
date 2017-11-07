@@ -19,7 +19,7 @@ if (suSegment(2) == 'duplicate') {
 $id = suSegment(1);
 
 
-$sql = "SELECT header__ID,header__Title,header__Picture FROM sulata_headers WHERE header__ID='" . $id . "' AND header__dbState='Live'";
+$sql = "SELECT header__ID,header__Title,header__Picture FROM sulata_headers WHERE header__ID='" . $id . "' AND header__dbState='Live' LIMIT 0,1";
 $result = suQuery($sql);
 $row = $result['result'][0];
 if ($result['num_rows'] == 0) {

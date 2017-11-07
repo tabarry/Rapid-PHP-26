@@ -11,3 +11,6 @@ FRAMEWORK 26 - CHANGELOG
 9. Removed card view from entire application
 10. Multiple email addresses allowed in email
 11. Picture shows on update pages
+12. Moved JS and CSS to sulata folder from _admin folder
+13. Added a default public template
+14. LIMIT 0,1 added on update pages

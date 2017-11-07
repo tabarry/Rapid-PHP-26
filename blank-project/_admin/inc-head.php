@@ -8,11 +8,11 @@
 
 <!-- Styles -->
 <!-- Bootstrap CSS -->
-<link href="<?php echo ADMIN_URL; ?>css/bootstrap.min.css" rel="stylesheet">
+<link href="<?php echo BASE_URL; ?>sulata/css/bootstrap.min.css" rel="stylesheet">
 <!-- Font awesome CSS -->
-<link href="<?php echo ADMIN_URL; ?>css/font-awesome.min.css" rel="stylesheet">		
-<!-- Custom Color CSS -->
-<link href="<?php echo ADMIN_URL; ?>css/less-style.css" rel="stylesheet">	
+<link href="<?php echo BASE_URL; ?>sulata/css/font-awesome.min.css" rel="stylesheet">		
+<!-- Less CSS -->
+<link href="<?php echo BASE_URL; ?>sulata/css/less-style.css" rel="stylesheet">	
 <!-- Custom CSS -->
 <link href="<?php echo ADMIN_URL; ?>css/style.css" rel="stylesheet">
 <!-- Theme CSS -->
@@ -28,8 +28,6 @@ if ($_SESSION[SESSION_PREFIX . 'user__Theme'] == '') {
 <link href="<?php echo BASE_URL; ?>sulata/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" type="text/css" />
 <!-- Font Awesome -->
 <link rel="stylesheet" href="<?php echo BASE_URL; ?>sulata/font-awesome/css/font-awesome.min.css" type="text/css" media="screen" />
-<!-- Sulata CSS -->
-<link href="<?php echo BASE_URL; ?>sulata/css/style.css" rel="stylesheet">
 <!-- CK Editor -->
 <script src="<?php echo BASE_URL; ?>sulata/ckeditor/ckeditor.js"></script>
 <!-- Pretty Photo -->

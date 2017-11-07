@@ -20,7 +20,7 @@ if (suSegment(2) == 'duplicate') {
 
 $id = suSegment(1);
 
-$sql = "SELECT mediacat__ID,mediacat__Name,mediacat__Picture,mediacat__Description,mediacat__Type,mediacat__Thumbnail_Width,mediacat__Thumbnail_Height,mediacat__Image_Width,mediacat__Image_Height,mediacat__Sequence FROM sulata_media_categories WHERE mediacat__ID='" . $id . "' AND mediacat__dbState='Live'";
+$sql = "SELECT mediacat__ID,mediacat__Name,mediacat__Picture,mediacat__Description,mediacat__Type,mediacat__Thumbnail_Width,mediacat__Thumbnail_Height,mediacat__Image_Width,mediacat__Image_Height,mediacat__Sequence FROM sulata_media_categories WHERE mediacat__ID='" . $id . "' AND mediacat__dbState='Live' LIMIT 0,1";
 $result = suQuery($sql);
 $row = $result['result'][0];
 if ($result['num_rows'] == 0) {

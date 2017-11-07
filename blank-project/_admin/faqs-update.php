@@ -20,7 +20,7 @@ if (suSegment(2) == 'duplicate') {
 $id = suSegment(1);
 
 
-$sql = "SELECT faq__ID,faq__Question,faq__Answer,faq__Sequence,faq__Status FROM sulata_faqs WHERE faq__ID='" . $id . "' AND faq__dbState='Live'";
+$sql = "SELECT faq__ID,faq__Question,faq__Answer,faq__Sequence,faq__Status FROM sulata_faqs WHERE faq__ID='" . $id . "' AND faq__dbState='Live' LIMIT 0,1";
 $result = suQuery($sql);
 $row = $result['result'][0];
 if ($result['num_rows'] == 0) {

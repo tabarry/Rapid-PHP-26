@@ -2,6 +2,9 @@
 
 if ($doUpdate == TRUE) {
     $updateValue = " ,'onchange'=>\"readURL(this,'imgThumb_" . $_POST['frmField'][$i] . "');\" ";
+}else{
+        $updateValue = " ,'onchange'=>\"readURL(this,'imgThumb_" . $_POST['frmField'][$i] . "');\" ";
+
 }
 $multipart = TRUE;
 if ($doUpdate == TRUE) {
@@ -28,11 +31,12 @@ if ($doUpdate == TRUE) {
 </div>
                                ";
 } else {
-
+/*
     $addCode .="
 <div class=\"form-group\">
 <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\">
 <label><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_req']; ?><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_title']; ?>:</label>
+    
                                 <?php
                                 \$arg = array('type' => \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_html5_type'], 'name' => '" . $_POST['frmField'][$i] . "', 'id' => '" . $_POST['frmField'][$i] . "',\$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_html5_req'] => \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_html5_req']);
                                 echo suInput('input', \$arg);
@@ -40,6 +44,32 @@ if ($doUpdate == TRUE) {
 </div>
 </div>
                                ";
+ * 
+ */
+    
+    $addCode .="
+<div class=\"form-group\">
+<div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\">  
+
+<label><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_req']; ?><?php echo \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_title']; ?>:</label>
+<?php
+                                if ((isset(\$row['" . $_POST['frmField'][$i] . "']) && \$row['" . $_POST['frmField'][$i] . "'] != '') && (file_exists(ADMIN_UPLOAD_PATH . \$row['" . $_POST['frmField'][$i] . "']))) {
+                                    \$defaultImage = BASE_URL . 'files/' . \$row['" . $_POST['frmField'][$i] . "'];
+                                } else {
+                                    \$defaultImage = BASE_URL . 'files/default-image.png';
+                                }
+                                ?>
+
+                                <div id=\"imgThumb_" . $_POST['frmField'][$i] . "\" class=\"imgThumb hand\" style=\"background-image:url(<?php echo \$defaultImage; ?>);\" onclick=\"$('#" . $_POST['frmField'][$i] . "').trigger('click')\"></div>    
+                                <?php
+                                \$arg = array('type' => \$dbs_" . $_POST['table'] . "['" . $_POST['frmField'][$i] . "_html5_type'], 'name' => '" . $_POST['frmField'][$i] . "', 'id' => '" . $_POST['frmField'][$i] . "'" . $updateValue . ");
+                                echo suInput('input', \$arg);
+                                ?>
+</div>
+</div>
+                               ";
+    
+    
 }
 if ($doUpdate == TRUE) {
     $addCode .="
