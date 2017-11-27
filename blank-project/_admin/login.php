@@ -77,7 +77,7 @@ if ($_GET['do'] == 'retrieve') {
     $sql = "SELECT user__Name, user__Email, user__Password FROM sulata_users WHERE user__Email='" . suStrip($_POST['user__Email']) . "' AND user__dbState='Live'";
     $result = suQuery($sql);
     if ($result['num_rows'] == 1) {
-
+        $row = $result['result'][0];
         $email = file_get_contents('../sulata/mails/lost-password.html');
         $email = str_replace('#NAME#', suUnstrip($row['user__Name']), $email);
         $email = str_replace('#SITE_NAME#', $getSettings['site_name'], $email);
