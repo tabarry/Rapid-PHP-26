@@ -210,6 +210,7 @@ if (!function_exists('suExit')) {
 if (!function_exists('suStrip')) {
 
     function suStrip($str) {
+      $str = str_replace('&','^AND^',$str);
         $str = trim(addslashes($str));
         return $str;
     }
@@ -219,6 +220,8 @@ if (!function_exists('suStrip')) {
 if (!function_exists('suUnstrip')) {
 
     function suUnstrip($str) {
+      $str = str_replace('^AND^','&',$str);
+
         $str = htmlspecialchars(stripslashes($str));
         if (LOCAL == TRUE) {
             $str = str_replace(WEB_URL, LOCAL_URL, $str);
